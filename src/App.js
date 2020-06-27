@@ -1,25 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Contador from "./pages/Contador";
+import Mesero from "./pages/Mesero";
+import Home from "./pages/Home";
+import Cocina from "./pages/Cocina";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="container">
+        <div className="menu">
+          <Link to="/">Home</Link>
+          <Link to="/mesero">Mesero</Link>
+          <Link to="/cocina">Cocina</Link>
+          <Link to="/contador">Contador</Link>
+        </div>
+        <Switch>
+          <Route path="/contador">
+            <Contador />
+          </Route>
+          <Route path="/mesero">
+            <Mesero />
+          </Route>
+          <Route path="/cocina">
+            <Cocina />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
