@@ -1,26 +1,15 @@
 import React from "react";
-import Contador from "./pages/Contador";
-import Mesero from "./pages/Mesero";
+import Waiter from "./pages/Waiter";
 import Home from "./pages/Home";
 import Cocina from "./pages/Cocina";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-function App() {
+const App = () => {
   return (
     <Router>
-      <div className="container">
-        <div className="menu">
-          <Link to="/">Home</Link>
-          <Link to="/mesero">Mesero</Link>
-          <Link to="/cocina">Cocina</Link>
-          <Link to="/contador">Contador</Link>
-        </div>
         <Switch>
-          <Route path="/contador">
-            <Contador />
-          </Route>
           <Route path="/mesero">
-            <Mesero />
+            <Waiter />
           </Route>
           <Route path="/cocina">
             <Cocina />
@@ -29,7 +18,6 @@ function App() {
             <Home />
           </Route>
         </Switch>
-      </div>
     </Router>
   );
 }
