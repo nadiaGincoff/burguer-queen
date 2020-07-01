@@ -6,8 +6,8 @@ const menu = Menu.menu;
 
 class Products extends Component {
   state = {
-    menu,
-  };
+    menu
+  }
   render() {
     return (
       <div className="productContainer">

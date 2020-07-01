@@ -1,6 +1,6 @@
 import React from "react";
-const Cocina = () => {
+const Kitchen = () => {
   return <div>Cocina</div>;
 };
 
-export default Cocina;
+export default Kitchen;

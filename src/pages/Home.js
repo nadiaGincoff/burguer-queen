@@ -8,18 +8,11 @@ class Home extends Component {
     return (
       <Link to="/">
         <div className="cotenedorInicial">
-          <h1 className="logo"></h1>
+          <img src={logo} alt="logo" className="logo"></img>
           <div className="containerButton">
             <Link to="/mesero"><button className="button">Ingresar Pedido</button></Link>
             <Link to="/cocina"><button className="button">Ingresar a Cocina</button></Link>
           </div>
-          <img src={logo} alt="logo" className="logo"></img>
-          <Link to="/mesero">
-            <button className="button">Ingresar Pedido</button>
-          </Link>
-          <Link to="/cocina">
-            <button className="button">Ingresar a Cocina</button>
-          </Link>
         </div>
       </Link>
     );
