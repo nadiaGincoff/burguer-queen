@@ -7,7 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
+  -moz-box-sizing: border-box;
 }
 
 code {
@@ -41,11 +41,10 @@ code {
   font-size: 21px;
 }
 .logo {
-  background-image: url("../img/logo.png");
   position: absolute;
   min-width: 18%;
   min-height: 39%;
   background-size: cover;
   background-position: center;
-  margin-left: 15%;
+  margin-left: -45%;
 }

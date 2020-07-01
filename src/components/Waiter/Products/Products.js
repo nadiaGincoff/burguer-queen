@@ -1,27 +1,27 @@
 import React, { Component } from "react";
-import Menu from "../../../Menu"
-import "./Products.css"
+import Menu from "../../../Menu";
+import "./Products.css";
 
-const menu = Menu.menu
+const menu = Menu.menu;
 
 class Products extends Component {
   state = {
-    menu
-  }
+    menu,
+  };
   render() {
     return (
       <div className="productContainer">
-        <ul>
+        <ul className="listado">
           {this.state.menu.map((product) => {
             return (
-              <div>
+              <div className="containerCard">
                 <div className="productCard">
                   <span className="card-price">{product.price}</span>
-                  <img src="product.img" />
+                  <img src={product.img} alt="menu icon" className="item-img" />
                   <span className="card-name">{product.name}</span>
                 </div>
               </div>
-            )
+            );
           })}
         </ul>
       </div>
