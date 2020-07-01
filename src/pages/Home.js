@@ -9,8 +9,10 @@ class Home extends Component {
       <Link to="/">
         <div className="cotenedorInicial">
           <h1 className="logo"></h1>
-          <Link to="/mesero"><button className="button">Ingresar Pedido</button></Link>
-          <Link to="/cocina"><button className="button">Ingresar a Cocina</button></Link>
+          <div className="containerButton">
+            <Link to="/mesero"><button className="button">Ingresar Pedido</button></Link>
+            <Link to="/cocina"><button className="button">Ingresar a Cocina</button></Link>
+          </div>
         </div>
       </Link>
     );
