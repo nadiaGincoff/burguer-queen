@@ -1,16 +1,20 @@
 import React, { Component } from "react";
-import './Home.css';
+import "./Home.css";
 import { Link } from "react-router-dom";
-
+import logo from "../img/logo.png";
 
 class Home extends Component {
   render() {
     return (
       <Link to="/">
         <div className="cotenedorInicial">
-          <h1 className="logo"></h1>
-          <Link to="/mesero"><button className="button">Ingresar Pedido</button></Link>
-          <Link to="/cocina"><button className="button">Ingresar a Cocina</button></Link>
+          <img src={logo} alt="logo" className="logo"></img>
+          <Link to="/mesero">
+            <button className="button">Ingresar Pedido</button>
+          </Link>
+          <Link to="/cocina">
+            <button className="button">Ingresar a Cocina</button>
+          </Link>
         </div>
       </Link>
     );
