@@ -8,7 +8,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
+  -moz-box-sizing: border-box;
 }
 
 code {
@@ -29,6 +29,7 @@ code {
   margin-left: 110px;
   margin-right: 856px;
   margin-top: 477px;
+  width: 400px;
 }
 .button {
   background: #78bb55;
@@ -47,12 +48,11 @@ code {
   font-size: 21px;
 }
 .logo {
-  background-image: url("../img/logo.png");
   position: absolute;
   min-width: 18%;
   min-height: 39%;
   background-position: center;
-  margin-left: 12%;
+  margin-left: -45%;
 }
 /* Landscape max-width*/
 @media only screen
@@ -60,7 +60,6 @@ code {
   and (max-device-width: 1366px)
   and (orientation: landscape)
   and (-webkit-min-device-pixel-ratio: 2) {
-
 }
 
 /* Portrait */
@@ -72,17 +71,13 @@ code {
   and (orientation: portrait)
   and (-webkit-min-device-pixel-ratio: 2) {
     .logo {
-      background-image: url("../img/logo.png");
-      background-position: center;
-      background-size: cover;
       width: 50%;
-      height: 356px;
-      margin-left: 9%;
+      margin-left: -35%;
       margin-top: 50px;
     }
     .containerButton {
-      margin-left: 250px;
-      margin-top: 593px;
+      margin-left: 20%;
+      margin-top: 50%;
 
     }
     .button {

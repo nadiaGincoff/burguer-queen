@@ -1,7 +1,7 @@
 import React from "react";
 import Waiter from "./pages/Waiter";
 import Home from "./pages/Home";
-import Cocina from "./pages/Cocina";
+import Kitchen from "./pages/Kitchen";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const App = () => {
@@ -12,7 +12,7 @@ const App = () => {
             <Waiter />
           </Route>
           <Route path="/cocina">
-            <Cocina />
+            <Kitchen />
           </Route>
           <Route path="/">
             <Home />
