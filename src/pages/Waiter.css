@@ -1,7 +1,56 @@
 .newOrderInfo {
-  width: 835px;
-  height: 780px;
-  left: 22px;
-  top: 954.91px;
-  background-color: #E7E7E7;
+  width: 60%;
+  height: 117vh;
+  background-color: #e7e7e7;
+}
+.waiterContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+.header {
+  background: linear-gradient(to right, #78bb55 0%, #99ff66 100%);
+  width: 100%;
+  height: 54px;
+  margin-bottom: 2%;
+}
+
+.order {
+  background: white;
+  width: 40%;
+  height: 100vh;
+}
+.summary {
+  height: 22vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 117%;
+}
+.buttonEnviar {
+  background: #78bb55;
+  color: white;
+  height: 61px;
+  width: 56%;
+  border: none;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1%;
+  font-size: 21px;
+}
+.buttonCancelar {
+  background: #a8b4a2;
+  color: white;
+  height: 61px;
+  width: 56%;
+  border: none;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1%;
+  font-size: 21px;
 }
