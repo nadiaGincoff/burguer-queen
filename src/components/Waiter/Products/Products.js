@@ -1,30 +1,36 @@
 import React, { Component } from "react";
-import Menu from "../../../Menu";
+import db from "../../../firebase.js";
 import "./Products.css";
 
-const menu = Menu.menu;
-
 class Products extends Component {
-  state = {
-    menu
+  constructor() {
+    super();
+    this.state = {
+      ordenes: [],
+      producto: "",
+      price: "",
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick() {
+    const itemName = this.props.name;
+    db.collection("ordenes").add({
+      producto: itemName,
+    });
   }
   render() {
     return (
-      <div className="productContainer">
-        <ul className="listado">
-          {this.state.menu.map((product) => {
-            return (
-              <div className="containerCard" key={product.id}>
-                <div className="productCard" >
-                  <span className="card-price">{product.price}</span>
-                  <img src={product.img} alt="menu icon" className="item-img" />
-                  <span className="card-name">{product.name}</span>
-                </div>
-              </div>
-            );
-          })}
-        </ul>
-      </div>
+      <button
+        className="containerCard"
+        key={this.props.id}
+        onClick={this.handleClick}
+      >
+        <div className="productCard">
+          <div className="card-price">{this.props.price}</div>
+          <img src={this.props.img} alt="menu icon" className="item-img" />
+          <div className="card-name">{this.props.name}</div>
+        </div>
+      </button>
     );
   }
 }
