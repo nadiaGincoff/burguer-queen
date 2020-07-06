@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import { Table, Button, Dropdown } from "reactstrap";
-import db from "../../firebase";
-
+import { Table, Button } from "reactstrap";
+import db from "../../firebase.js";
 class Order extends Component {
   state = {
     items: [],
-    productos: "",
+    productName: "",
+    price: "",
   };
+
   componentDidMount() {
     db.collection("ordenes").onSnapshot((snapShots) => {
       this.setState({
@@ -20,10 +21,12 @@ class Order extends Component {
     });
   }
 
-  render() {
-    //this.state.items =
-    const { items } = this.state;
+  delete = (id) => {
+    db.collection("ordenes").doc(id).delete();
+  };
 
+  render() {
+    const { items } = this.state;
     return (
       <div>
         <Table striped bordered hover size="sm">
@@ -31,26 +34,32 @@ class Order extends Component {
             <tr>
               <th>Cantidad</th>
               <th>Producto</th>
+              <th>Precio</th>
               <th>Eliminar</th>
             </tr>
           </thead>
           <tbody>
             {items && items !== undefined
-              ? items.map((item, cantidad, producto, key) => (
-                  <tr key={key}>
-                    <td>{item.data.cantidad}</td>
-                    <td>{item.data.producto}</td>
-                    <td>
-                      <Button color="danger btnCircle">Eliminar</Button>
-                    </td>
-                  </tr>
-                ))
-              : null}
+              ? items.map((item, key) => (
+                <tr key={key}>
+                  <td>{item.data.cantidad}</td>
+                  <td>{item.data.productName}</td>
+                  <td>{item.data.price}</td>
+                  <td>
+                    <Button
+                      color="danger btnCircle"
+                      onClick={() => this.delete(item.id)}
+                    >
+                      Eliminar
+                    </Button>
+                  </td>
+                </tr>
+              )) : null
+            }
           </tbody>
         </Table>
       </div>
     );
   }
 }
-
 export default Order;
