@@ -1,23 +1,26 @@
 import React, { Component } from "react";
-import db from "../../../firebase.js";
+import db from "../../firebase.js";
 import "./Products.css";
 
 class Products extends Component {
   constructor() {
     super();
     this.state = {
-      ordenes: [],
-      producto: "",
+      productName: "",
       price: "",
     };
     this.handleClick = this.handleClick.bind(this);
   }
+
   handleClick() {
     const itemName = this.props.name;
+    const itemPrice = this.props.price;
     db.collection("ordenes").add({
-      producto: itemName,
+      productName: itemName,
+      price: itemPrice,
     });
   }
+
   render() {
     return (
       <button
@@ -34,5 +37,4 @@ class Products extends Component {
     );
   }
 }
-
 export default Products;

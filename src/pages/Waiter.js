@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Products from "../components/Waiter/Products/Products.js";
-import ClientInfo from "../components/Waiter/ClientInfo/ClientInfo.js";
+import Products from "../components/Waiter/Products.js";
+import ClientInfo from "../components/Waiter/ClientInfo.js";
 import "./Waiter.css";
 import "../pages/Home.css";
 import Order from "../components/Waiter/Order";
@@ -18,6 +18,7 @@ class Waiter extends Component {
   getNameAndPrice(props) {
     let itemName = props.name;
   }
+
   render() {
     return (
       <div className="waiterContainer">
@@ -40,7 +41,7 @@ class Waiter extends Component {
                   img={props.img}
                 />
               )
-            })
+          })
           }
           </div>
           <div>

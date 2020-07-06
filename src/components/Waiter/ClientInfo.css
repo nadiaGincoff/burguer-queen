@@ -1,0 +1,13 @@
+.clientName {
+  width: 66%;
+  height: 8vh;
+  border: 1px solid #000000;
+  border-radius: 15px 0px 0px 0px;
+}
+
+.clientTable {
+  width: 34%;
+  height: 8vh;
+  border: 1px solid #000000;
+  border-radius: 0px 15px 0px 0px;
+}
