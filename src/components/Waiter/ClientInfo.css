@@ -1,13 +1,44 @@
-.clientName {
-  width: 66%;
-  height: 8vh;
-  border: 1px solid #000000;
+.clientName, .clientTable {
+  width: 70%;
+  height: 5vh;
+  border: none;
+  border-bottom:1px solid #868686;
   border-radius: 15px 0px 0px 0px;
+  outline: none;
+  padding-left: 26px;
+
+}
+.clientName::placeholder, .clientTable::placeholder {
+  font-family: Livvic;
+  font-size: 24px;
+  line-height: 30px;
+  display: flex;
+  align-items: flex-end;
+  letter-spacing: 0.05em;
+  width: 264px;
+  height: 42.7px;
+  color: #868686;
 }
 
 .clientTable {
-  width: 34%;
-  height: 8vh;
-  border: 1px solid #000000;
+  width: 30%;
   border-radius: 0px 15px 0px 0px;
+  border-left: 1px solid #868686;
+}
+
+@media only screen
+  and (min-device-width: 1024px)
+  and (max-device-width: 1024px)
+  and (orientation: landscape)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .clientName::placeholder, .clientTable::placeholder {
+      font-family: Livvic;
+      font-size: 20px;
+      line-height: 30px;
+      display: flex;
+      align-items: flex-end;
+      letter-spacing: 0.05em;
+      width: 264px;
+      height: 42.7px;
+    }
 }

@@ -15,6 +15,7 @@ class Products extends Component {
   handleClick() {
     const itemName = this.props.name;
     const itemPrice = this.props.price;
+
     db.collection("ordenes").add({
       productName: itemName,
       price: itemPrice,

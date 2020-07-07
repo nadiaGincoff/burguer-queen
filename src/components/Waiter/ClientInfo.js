@@ -11,7 +11,7 @@ class ClientInfo extends Component {
           className="clientName"
         />
         <input
-          placeholder="Numero de mesa"
+          placeholder="N° Mesa"
           type="number"
           className="clientTable"
         />
