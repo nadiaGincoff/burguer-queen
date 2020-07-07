@@ -22,11 +22,12 @@ class Waiter extends Component {
   render() {
     return (
       <div className="waiterContainer">
-        <header className="header">Mesero</header>
+        <header className="header"></header>
         <div className="newOrderInfo">
           <div>{<ClientInfo />}</div>
           <div>
               <h1>Desayuno</h1>
+              <hr size="3px" />
           { this.state.menu.filter((props) => {
             return (
               props.type === "breakfast"
@@ -46,6 +47,7 @@ class Waiter extends Component {
           </div>
           <div>
               <h1>Almuerzo</h1>
+              <hr size="3px" />
           { this.state.menu.filter((props) => {
             return (
               props.type === "launch"
@@ -65,6 +67,7 @@ class Waiter extends Component {
           </div>
           <div>
               <h1>Para beber</h1>
+              <hr size="3px" />
           { this.state.menu.filter((props) => {
             return (
               props.type === "drinks"
@@ -83,8 +86,10 @@ class Waiter extends Component {
           }
           </div>
         </div>
-        <div className="order">
+        <div className="containerOrder">
+          <div className="order">
           <Order></Order>
+          </div>
           <div className="summary">
             <button className="buttonEnviar">Enviar a cocina</button>
             <button className="buttonCancelar">Cancelar pedido</button>

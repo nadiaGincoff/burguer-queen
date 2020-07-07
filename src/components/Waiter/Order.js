@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Table, Button } from "reactstrap";
+import { Table } from "reactstrap";
 import db from "../../firebase.js";
+import icon from '../../img/icon-delete.png'
 class Order extends Component {
   state = {
     items: [],
@@ -29,6 +30,7 @@ class Order extends Component {
     const { items } = this.state;
     return (
       <div>
+        <span className="ordername">Pedido para montoto</span>
         <Table striped bordered hover size="sm">
           <thead>
             <tr>
@@ -46,20 +48,24 @@ class Order extends Component {
                   <td>{item.data.productName}</td>
                   <td>{item.data.price}</td>
                   <td>
-                    <Button
-                      color="danger btnCircle"
-                      onClick={() => this.delete(item.id)}
-                    >
-                      Eliminar
-                    </Button>
+                  <img src={icon} onClick={() => this.delete(item.id)} className="icon-delete"/>
                   </td>
                 </tr>
               )) : null
             }
           </tbody>
+          <tfoot>
+            <tr>
+            <th></th>
+            <th></th>
+            <th>Total</th>
+            <th>$7,750.00</th>
+            </tr>
+          </tfoot>
         </Table>
       </div>
     );
   }
 }
+
 export default Order;

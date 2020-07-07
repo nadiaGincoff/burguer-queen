@@ -38,14 +38,18 @@ code {
   width: 400px;
   border: none;
   border-radius: 15px;
-  display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   margin: -22%;
   margin-left: 14%;
   margin-top: 30%;
   font-size: 21px;
+  font-family: Livvic;
+  font-size: 30px;
+  line-height: 38px;
+  display: flex;
+  letter-spacing: 0.05em;
+  padding-left: 17%
 }
 .logo {
   position: absolute;

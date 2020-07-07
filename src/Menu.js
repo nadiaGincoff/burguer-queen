@@ -95,7 +95,6 @@ export default {
       img: "https://i.ibb.co/sjmsZgs/icon-soda750ml.png",
       type: "drinks",
       price: "$10",
-
     },
   ],
 };
