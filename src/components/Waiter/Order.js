@@ -4,13 +4,16 @@ import db from "../../firebase.js";
 import icon from '../../img/icon-delete.png'
 class Order extends Component {
   state = {
+    clientName: '',
+    clientTable: '',
     items: [],
     productName: "",
     price: "",
+    quantity: 0
   };
 
   componentDidMount() {
-    db.collection("ordenes").onSnapshot((snapShots) => {
+    db.collection("products").onSnapshot((snapShots) => {
       this.setState({
         items: snapShots.docs.map((doc) => {
           return {
@@ -23,16 +26,16 @@ class Order extends Component {
   }
 
   delete = (id) => {
-    db.collection("ordenes").doc(id).delete();
+    db.collection("products").doc(id).delete();
   };
 
   render() {
     const { items } = this.state;
     return (
       <div>
-        <span className="ordername">Pedido para montoto</span>
         <Table striped bordered hover size="sm">
           <thead>
+            <tr>Pedido para</tr>
             <tr>
               <th>Cantidad</th>
               <th>Producto</th>

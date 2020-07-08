@@ -16,7 +16,7 @@ class Products extends Component {
     const itemName = this.props.name;
     const itemPrice = this.props.price;
 
-    db.collection("ordenes").add({
+    db.collection("products").add({
       productName: itemName,
       price: itemPrice,
     });
@@ -39,3 +39,4 @@ class Products extends Component {
   }
 }
 export default Products;
+

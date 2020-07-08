@@ -5,6 +5,9 @@ import "./Waiter.css";
 import "../pages/Home.css";
 import Order from "../components/Waiter/Order";
 import Menu from "../Menu";
+import "../components/Waiter/ClientInfo.css";
+import db from '../firebase.js';
+
 
 const menu = Menu.menu;
 class Waiter extends Component {
@@ -12,11 +15,44 @@ class Waiter extends Component {
     super();
     this.state = {
       menu,
+      clientInfo: [],
+      products: [],
+      date: '',
+      state: '',
     };
+  }
+
+  componentDidMount() {
+    db.collection('products').get().then((querySnapshot) => { // Entramos a los datos de firebase
+      const product = querySnapshot.docs.map(doc => doc.data());// Recorremos los datos
+      this.setState({
+        products: product // Actualizamos el estado del array con los datos de nuestra colección
+      })
+    })
+  }
+
+  // Actualizar estado con informacion de cliente
+  saveInputValues = (clientInfo, text) => {
+    this.setState({
+      [clientInfo]: text
+    })
+    console.log(text)
   }
 
   getNameAndPrice(props) {
     let itemName = props.name;
+  }
+
+  sendToKitchen = () => {
+    db.collection('orders').add({
+      client: {
+        name: this.state.clientName,
+        table: this.state.clientTable,
+      },
+      products: this.state.products,
+      date: '',
+      state: "in progress",
+    })
   }
 
   render() {
@@ -24,22 +60,37 @@ class Waiter extends Component {
       <div className="waiterContainer">
         <header className="header"></header>
         <div className="newOrderInfo">
-          <div>{<ClientInfo />}</div>
+          <div className='clientInfo'>
+          <ClientInfo
+            onChange={this.saveInputValues}
+            type='text'
+            placeholder='Ingrese nombre de cliente'
+            name='clientName'
+            className='clientName'
+          />
+          <ClientInfo
+            onChange={this.saveInputValues}
+            type='number'
+            placeholder='N° Mesa'
+            name='clientTable'
+            className='clientTable'
+          />
+          </div>
           <div>
               <h1>Desayuno</h1>
               <hr size="3px" />
-          { this.state.menu.filter((props) => {
+          { this.state.menu.filter((product) => {
             return (
-              props.type === "breakfast"
+              product.type === "breakfast"
             )
-          }).map((props) => {
+          }).map((product) => {
               return (
                 <Products
-                  onClick={this.getNameAndPrice(props)}
-                  key={props.id}
-                  name={props.name}
-                  price={props.price}
-                  img={props.img}
+                  onClick={this.getNameAndPrice(product)}
+                  key={product.id}
+                  name={product.name}
+                  price={product.price}
+                  img={product.img}
                 />
               )
           })
@@ -48,18 +99,18 @@ class Waiter extends Component {
           <div>
               <h1>Almuerzo</h1>
               <hr size="3px" />
-          { this.state.menu.filter((props) => {
+          { this.state.menu.filter((product) => {
             return (
-              props.type === "launch"
+              product.type === "launch"
             )
-          }).map((props) => {
+          }).map((product) => {
               return (
                 <Products
-                  onClick={this.getNameAndPrice(props)}
-                  key={props.id}
-                  name={props.name}
-                  price={props.price}
-                  img={props.img}
+                  onClick={this.getNameAndPrice(product)}
+                  key={product.id}
+                  name={product.name}
+                  price={product.price}
+                  img={product.img}
                 />
               )
             })
@@ -68,18 +119,18 @@ class Waiter extends Component {
           <div>
               <h1>Para beber</h1>
               <hr size="3px" />
-          { this.state.menu.filter((props) => {
+          { this.state.menu.filter((product) => {
             return (
-              props.type === "drinks"
+              product.type === "drinks"
             )
-          }).map((props) => {
+          }).map((product) => {
               return (
                 <Products
-                  onClick={this.getNameAndPrice(props)}
-                  key={props.id}
-                  name={props.name}
-                  price={props.price}
-                  img={props.img}
+                  onClick={this.getNameAndPrice(product)}
+                  key={product.id}
+                  name={product.name}
+                  price={product.price}
+                  img={product.img}
                 />
               )
             })
@@ -91,7 +142,7 @@ class Waiter extends Component {
           <Order></Order>
           </div>
           <div className="summary">
-            <button className="buttonEnviar">Enviar a cocina</button>
+            <button className="buttonEnviar" onClick={this.sendToKitchen}>Enviar a cocina</button>
             <button className="buttonCancelar">Cancelar pedido</button>
           </div>
         </div>
