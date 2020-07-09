@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Products from "../components/Waiter/Products.js";
+import Products from "../components/Waiter/Product.js";
 import ClientInfo from "../components/Waiter/ClientInfo.js";
 import "./Waiter.css";
 import "../pages/Home.css";
@@ -8,27 +8,67 @@ import Menu from "../Menu";
 import "../components/Waiter/ClientInfo.css";
 import db from '../firebase.js';
 
-
 const menu = Menu.menu;
 class Waiter extends Component {
+  //variables locales o atributos
+  products = []
+
   constructor() {
     super();
     this.state = {
-      menu,
-      clientInfo: [],
-      products: [],
-      date: '',
-      state: '',
+       menu,
+       clientInfo: []
     };
+    // guarda una referencia al componente Order para utilizar sus funciones
+    this.orderElement = React.createRef();
   }
 
-  componentDidMount() {
-    db.collection('products').get().then((querySnapshot) => { // Entramos a los datos de firebase
-      const product = querySnapshot.docs.map(doc => doc.data());// Recorremos los datos
-      this.setState({
-        products: product // Actualizamos el estado del array con los datos de nuestra colección
-      })
-    })
+  incrementProductQuantity = (product) => {
+    //1: buscar el producto que quiero incrementar en this.products
+    const index = this.products.findIndex(prod =>
+      product.name === prod.name
+    )
+    //2: incrementar el atributo quantity +1
+    this.products[index].quantity += 1
+
+    //5: Recargar Order con producto actualizados
+    this.orderElement.current.loadProducts(this.products)
+  }
+
+  decrementProductQuantity = (product) => {
+    //1: buscar el producto que quiero incrementar en this.products
+    const index = this.products.findIndex(prod =>
+      product.name === prod.name
+    )
+
+    if (this.products[index].quantity <= 1) {
+      return
+    }
+    //2: incrementar el atributo quantity +1
+    this.products[index].quantity -= 1
+
+    //5: Recargar Order con producto actualizados
+    this.orderElement.current.loadProducts(this.products)
+  }
+
+  saveProduct = (product) => {
+    const index = this.products.findIndex(prod =>
+      product.name === prod.name
+    )
+    // El index es -1 cuando no encuentra elemento, si ya existe, no se vuelve a agregar
+    if (index >= 0) {
+      return
+    }
+      this.products.push(product)
+      this.orderElement.current.loadProducts(this.products)
+  }
+
+  deleteProduct = (product) => {
+    const index = this.products.findIndex(prod =>
+      product.name === prod.name
+    )
+    this.products.splice(index, 1)
+    this.orderElement.current.loadProducts(this.products)
   }
 
   // Actualizar estado con informacion de cliente
@@ -39,17 +79,13 @@ class Waiter extends Component {
     console.log(text)
   }
 
-  getNameAndPrice(props) {
-    let itemName = props.name;
-  }
-
   sendToKitchen = () => {
     db.collection('orders').add({
       client: {
         name: this.state.clientName,
         table: this.state.clientTable,
       },
-      products: this.state.products,
+      products: this.products,
       date: '',
       state: "in progress",
     })
@@ -86,7 +122,7 @@ class Waiter extends Component {
           }).map((product) => {
               return (
                 <Products
-                  onClick={this.getNameAndPrice(product)}
+                  save={this.saveProduct}v
                   key={product.id}
                   name={product.name}
                   price={product.price}
@@ -106,7 +142,8 @@ class Waiter extends Component {
           }).map((product) => {
               return (
                 <Products
-                  onClick={this.getNameAndPrice(product)}
+                  save={this.saveProduct}
+                  delete={this.deleteProduct}
                   key={product.id}
                   name={product.name}
                   price={product.price}
@@ -126,7 +163,8 @@ class Waiter extends Component {
           }).map((product) => {
               return (
                 <Products
-                  onClick={this.getNameAndPrice(product)}
+                  save={this.saveProduct}
+                  delete={this.deleteProduct}
                   key={product.id}
                   name={product.name}
                   price={product.price}
@@ -139,7 +177,12 @@ class Waiter extends Component {
         </div>
         <div className="containerOrder">
           <div className="order">
-          <Order></Order>
+          <Order
+            ref={this.orderElement}
+            delete={this.deleteProduct}
+            increment={this.incrementProductQuantity}
+            decrement={this.decrementProductQuantity}>
+          </Order>
           </div>
           <div className="summary">
             <button className="buttonEnviar" onClick={this.sendToKitchen}>Enviar a cocina</button>

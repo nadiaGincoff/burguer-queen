@@ -1,41 +1,23 @@
 import React, { Component } from "react";
 import { Table } from "reactstrap";
-import db from "../../firebase.js";
 import icon from '../../img/icon-delete.png'
+
 class Order extends Component {
   state = {
-    clientName: '',
-    clientTable: '',
-    items: [],
-    productName: "",
-    price: "",
-    quantity: 0
+    products: [],
   };
 
-  componentDidMount() {
-    db.collection("products").onSnapshot((snapShots) => {
-      this.setState({
-        items: snapShots.docs.map((doc) => {
-          return {
-            id: doc.id,
-            data: doc.data(),
-          };
-        }),
-      });
-    });
+  loadProducts = (products) => {
+    this.setState({products: products})
   }
 
-  delete = (id) => {
-    db.collection("products").doc(id).delete();
-  };
-
   render() {
-    const { items } = this.state;
+    const { products } = this.state;
+
     return (
       <div>
         <Table striped bordered hover size="sm">
           <thead>
-            <tr>Pedido para</tr>
             <tr>
               <th>Cantidad</th>
               <th>Producto</th>
@@ -44,14 +26,21 @@ class Order extends Component {
             </tr>
           </thead>
           <tbody>
-            {items && items !== undefined
-              ? items.map((item, key) => (
+            {products.length > 0
+              ? products.map((item, key) => (
                 <tr key={key}>
-                  <td>{item.data.cantidad}</td>
-                  <td>{item.data.productName}</td>
-                  <td>{item.data.price}</td>
                   <td>
-                  <img src={icon} onClick={() => this.delete(item.id)} className="icon-delete"/>
+                    <div>
+                      <button onClick={() => {this.props.increment(item)}}>+
+                      </button>
+                        <input className="quantity-input__screen" type="text" value={item.quantity} />
+                      <button onClick={() => {this.props.decrement(item)}}>-</button>
+                    </div>
+                  </td>
+                  <td>{item.name}</td>
+                  <td>{item.price}</td>
+                  <td>
+                  <img src={icon} onClick={() => { this.props.delete(item)}} className="icon-delete"/>
                   </td>
                 </tr>
               )) : null

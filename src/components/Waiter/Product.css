@@ -19,6 +19,12 @@
   background: #FFFFFF;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
+.containerCard:focus {
+  outline: none;
+}
+.containerCardActive {
+  background: #7ec858;
+}
 
 .productCard {
   display: flex;

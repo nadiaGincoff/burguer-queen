@@ -7,6 +7,7 @@ export default {
       img: "https://i.ibb.co/fHWzXCS/icon-cafeamericano.png",
       type: "breakfast",
       price: "$5",
+      quantity: 1,
     },
     {
       id: 2,
@@ -15,6 +16,7 @@ export default {
       img: "https://i.ibb.co/HDYmsvD/icon-cafeconleche.png",
       type: "breakfast",
       price: "$7",
+      quantity: 1,
     },
     {
       id: 3,
@@ -23,6 +25,7 @@ export default {
       img: "https://i.ibb.co/5GFKWX8/icon-sandwich.png",
       type: "breakfast",
       price: "$10",
+      quantity: 1,
     },
     {
       id: 4,
@@ -31,6 +34,7 @@ export default {
       img: "https://i.ibb.co/pnLpQDT/icon-jugodefrutas.png",
       type: "breakfast",
       price: "$7",
+      quantity: 1,
     },
     {
       id: 5,
@@ -39,6 +43,7 @@ export default {
       img: "https://i.ibb.co/bRPjC6N/icon-burguersimple.png",
       type: "launch",
       price: "$10",
+      quantity: 1,
     },
     {
       id: 6,
@@ -47,6 +52,7 @@ export default {
       img: "https://i.ibb.co/xY4GNvZ/icon-burguerdoble.png",
       type: "launch",
       price: "$15",
+      quantity: 1,
     },
     {
       id: 7,
@@ -55,6 +61,7 @@ export default {
       img: "https://i.ibb.co/2PWFXM7/icon-onionrings.png",
       type: "launch",
       price: "$5",
+      quantity: 1,
     },
     {
       id: 8,
@@ -63,6 +70,7 @@ export default {
       img: "https://i.ibb.co/gt0XwHz/icon-papasfritas.png",
       type: "launch",
       price: "$5",
+      quantity: 1,
     },
     {
       id: 9,
@@ -71,6 +79,7 @@ export default {
       img: "https://i.ibb.co/LzxvRxk/icon-water.png",
       type: "drinks",
       price: "$5",
+      quantity: 1,
     },
     {
       id: 10,
@@ -79,6 +88,7 @@ export default {
       img: "https://i.ibb.co/68CYDVh/icon-water750ml.png",
       type: "drinks",
       price: "$7",
+      quantity: 1,
     },
     {
       id: 11,
@@ -87,6 +97,7 @@ export default {
       img: "https://i.ibb.co/L6sbPMt/icon-soda500ml.png",
       type: "drinks",
       price: "$7",
+      quantity: 1,
     },
     {
       id: 12,
@@ -95,6 +106,7 @@ export default {
       img: "https://i.ibb.co/sjmsZgs/icon-soda750ml.png",
       type: "drinks",
       price: "$10",
+      quantity: 1,
     },
   ],
 };
