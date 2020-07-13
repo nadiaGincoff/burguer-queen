@@ -1,26 +1,21 @@
 import React, { Component } from "react";
-import db from "../../firebase.js";
-import "./Products.css";
+import "./Product.css";
 
 class Products extends Component {
   constructor() {
     super();
-    this.state = {
-      productName: "",
-      price: "",
+  }
+
+  handleClick = (e) => {
+    const product = {
+      name: this.props.name,
+      price: this.props.price,
+      quantity: 1,
     };
-    this.handleClick = this.handleClick.bind(this);
-  }
 
-  handleClick() {
-    const itemName = this.props.name;
-    const itemPrice = this.props.price;
-
-    db.collection("ordenes").add({
-      productName: itemName,
-      price: itemPrice,
-    });
-  }
+    this.props.save(product);
+    e.target.classList.add("containerCardActive");
+  };
 
   render() {
     return (
@@ -30,7 +25,7 @@ class Products extends Component {
         onClick={this.handleClick}
       >
         <div className="productCard">
-          <div className="card-price">{this.props.price}</div>
+          <div className="card-price">{"$" + this.props.price}</div>
           <img src={this.props.img} alt="menu icon" className="item-img" />
           <div className="card-name">{this.props.name}</div>
         </div>
@@ -38,4 +33,5 @@ class Products extends Component {
     );
   }
 }
+
 export default Products;

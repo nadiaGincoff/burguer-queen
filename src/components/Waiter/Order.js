@@ -1,36 +1,32 @@
 import React, { Component } from "react";
 import { Table } from "reactstrap";
-import db from "../../firebase.js";
-import icon from '../../img/icon-delete.png'
+import icon from "../../img/icon-delete.png";
+
 class Order extends Component {
   state = {
-    items: [],
-    productName: "",
-    price: "",
+    products: [],
+    total: 0,
   };
 
-  componentDidMount() {
-    db.collection("ordenes").onSnapshot((snapShots) => {
-      this.setState({
-        items: snapShots.docs.map((doc) => {
-          return {
-            id: doc.id,
-            data: doc.data(),
-          };
-        }),
-      });
+  sumTotal = () => {
+    let preTotal = 0;
+    this.state.products.forEach((product) => {
+      preTotal += product.price * product.quantity;
     });
-  }
+    this.setState({ total: preTotal });
+  };
 
-  delete = (id) => {
-    db.collection("ordenes").doc(id).delete();
+  // Se guarda una copia de los productos en el state de order
+  loadProducts = (products) => {
+    this.setState({ products: products });
+    this.sumTotal();
   };
 
   render() {
-    const { items } = this.state;
+    const { products } = this.state;
+
     return (
       <div>
-        <span className="ordername">Pedido para montoto</span>
         <Table striped bordered hover size="sm">
           <thead>
             <tr>
@@ -41,25 +37,53 @@ class Order extends Component {
             </tr>
           </thead>
           <tbody>
-            {items && items !== undefined
-              ? items.map((item, key) => (
-                <tr key={key}>
-                  <td>{item.data.cantidad}</td>
-                  <td>{item.data.productName}</td>
-                  <td>{item.data.price}</td>
-                  <td>
-                  <img src={icon} onClick={() => this.delete(item.id)} className="icon-delete"/>
-                  </td>
-                </tr>
-              )) : null
-            }
+            {products.length > 0
+              ? products.map((product, key) => (
+                  <tr key={key}>
+                    <td>
+                      <div>
+                        <button
+                          onClick={() => {
+                            this.props.increment(product);
+                          }}
+                        >
+                          +
+                        </button>
+                        <input
+                          className="quantity-input__screen"
+                          type="text"
+                          value={product.quantity}
+                        />
+                        <button
+                          onClick={() => {
+                            this.props.decrement(product);
+                          }}
+                        >
+                          -
+                        </button>
+                      </div>
+                    </td>
+                    <td>{product.name}</td>
+                    <td>{"$" + product.price * product.quantity}</td>
+                    <td>
+                      <img
+                        src={icon}
+                        onClick={() => {
+                          this.props.delete(product);
+                        }}
+                        className="icon-delete"
+                      />
+                    </td>
+                  </tr>
+                ))
+              : null}
           </tbody>
           <tfoot>
             <tr>
-            <th></th>
-            <th></th>
-            <th>Total</th>
-            <th>$7,750.00</th>
+              <th></th>
+              <th></th>
+              <th>Total</th>
+              <th>{"$" + this.state.total}</th>
             </tr>
           </tfoot>
         </Table>
