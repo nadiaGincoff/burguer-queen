@@ -19,11 +19,25 @@
   background: #FFFFFF;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
+
 .containerCard:focus {
   outline: none;
 }
+
+@keyframes toggle {
+  from {
+    transform: scale(0.6);
+    background: #bfe6ac;
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
 .containerCardActive {
   background: #7ec858;
+  animation: 200ms toggle ease;
 }
 
 .productCard {
@@ -45,25 +59,23 @@
   letter-spacing: 0.05em;
 }
 
-@media only screen
-  and (min-device-width: 1024px)
-  and (max-device-width: 1024px)
-  and (orientation: landscape)
-  and (-webkit-min-device-pixel-ratio: 2) {
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
 
-    hr {
-      margin-bottom: 20px;
-      border: 0;
-      border-top: 1px solid black;
-    }
-    .containerCard {
-        height: 15vh;
-        width: 15vh;
-        margin: 8px 0px 0px 20px;
-    }
-    .item-img {
-      max-width: 50px;
-      max-height: 40px;
-    }
+  hr {
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid black;
+  }
+
+  .containerCard {
+    height: 15vh;
+    width: 15vh;
+    margin: 8px 0px 0px 20px;
+  }
+
+  .item-img {
+    max-width: 50px;
+    max-height: 40px;
+  }
 
 }
