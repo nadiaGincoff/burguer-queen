@@ -1,16 +1,16 @@
-*{
+* {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
 }
 
-body{
-  background-color: #EEEEEE;
+body {
+  background-color: #eeeeee;
 }
 
 .newOrderInfo {
   width: 55%;
-  height: 80vh;
+  height: 103vh;
   background-color: #e7e7e7;
   margin-left: 15px;
   margin-right: 22px;
@@ -40,7 +40,7 @@ h1 {
   display: flex;
   align-items: flex-end;
   letter-spacing: 0.05em;
-  color: #5a5a5a
+  color: #5a5a5a;
 }
 
 hr {
@@ -60,16 +60,17 @@ hr {
 }
 
 .summary {
-  position: fixed;
-  width: 56%;
-  height: 61px;
-  margin: 780px 60px 16px;
+  position: absolute;
+  width: 32%;
+  height: 21vh;
+  margin: 563px 54px 7px;
 }
 
-.buttonEnviar, .buttonCancelar {
+.buttonEnviar,
+.buttonCancelar {
   background: #78bb55;
   height: 61px;
-  width: 56%;
+  width: 90%;
   border: none;
   border-radius: 15px;
   display: flex;
@@ -77,43 +78,39 @@ hr {
   align-items: center;
   margin: 1%;
   font-size: 25px;
-  font-family: 'Livvic', sans-serif;
+  font-family: "Livvic", sans-serif;
   font-weight: 500;
   line-height: 38px;
   letter-spacing: 0.05em;
-  color: #FFFFFF;
+  color: #ffffff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .buttonCancelar {
-  background: #7B7A7A;
+  background: #7b7a7a;
 }
 
-@media only screen
-  and (min-device-width: 1024px)
-  and (max-device-width: 1024px)
-  and (orientation: landscape)
-  and (-webkit-min-device-pixel-ratio: 2) {
-    h1 {
-      font-size: 25px;
-      margin-left: 35px;
-    }
-    header {
-      height: 16px;
-      margin-bottom: 0.5%;
-    }
-    .newOrderInfo {
-      height: 93vh;
-      margin-top: 2vh;
-    }
-    .summary {
-      position: fixed;
-      width: 56%;
-      height: 61px;
-      margin: 599px 32px 16px;
-    }
-    .order {
-      margin-top: 9vh;
-      border-radius: 16px;
-    }
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+  h1 {
+    font-size: 25px;
+    margin-left: 35px;
+  }
+  header {
+    height: 16px;
+    margin-bottom: 0.5%;
+  }
+  .newOrderInfo {
+    height: 93vh;
+    margin-top: 2vh;
+  }
+  .summary {
+    position: fixed;
+    width: 37%;
+    height: 61px;
+    margin: 711px 32px 16px;
+  }
+  .order {
+    margin-top: 2vh;
+    border-radius: 16px;
+  }
 }

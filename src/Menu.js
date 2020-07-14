@@ -6,7 +6,7 @@ export default {
       name: "Cafe americano",
       img: "https://i.ibb.co/fHWzXCS/icon-cafeamericano.png",
       type: "breakfast",
-      price: 5,
+      price: 500,
       quantity: 1,
     },
     {
@@ -15,7 +15,7 @@ export default {
       name: "Cafe con leche",
       img: "https://i.ibb.co/HDYmsvD/icon-cafeconleche.png",
       type: "breakfast",
-      price: 7,
+      price: 700,
       quantity: 1,
     },
     {
@@ -24,7 +24,7 @@ export default {
       name: "Sandwich de J y Q",
       img: "https://i.ibb.co/5GFKWX8/icon-sandwich.png",
       type: "breakfast",
-      price: 10,
+      price: 1000,
       quantity: 1,
     },
     {
@@ -33,7 +33,7 @@ export default {
       name: "Jugo de frutas",
       img: "https://i.ibb.co/pnLpQDT/icon-jugodefrutas.png",
       type: "breakfast",
-      price: 7,
+      price: 700,
       quantity: 1,
     },
     {
@@ -42,7 +42,7 @@ export default {
       name: "Burger simple",
       img: "https://i.ibb.co/bRPjC6N/icon-burguersimple.png",
       type: "launch",
-      price: 10,
+      price: 1000,
       quantity: 1,
     },
     {
@@ -51,7 +51,7 @@ export default {
       name: "Burger doble",
       img: "https://i.ibb.co/xY4GNvZ/icon-burguerdoble.png",
       type: "launch",
-      price: 15,
+      price: 1500,
       quantity: 1,
     },
     {
@@ -60,7 +60,7 @@ export default {
       name: "Aros de cebolla",
       img: "https://i.ibb.co/2PWFXM7/icon-onionrings.png",
       type: "launch",
-      price: 5,
+      price: 500,
       quantity: 1,
     },
     {
@@ -69,7 +69,7 @@ export default {
       name: "Papas fritas",
       img: "https://i.ibb.co/gt0XwHz/icon-papasfritas.png",
       type: "launch",
-      price: 5,
+      price: 500,
       quantity: 1,
     },
     {
@@ -78,7 +78,7 @@ export default {
       name: "Agua 500ml",
       img: "https://i.ibb.co/LzxvRxk/icon-water.png",
       type: "drinks",
-      price: 5,
+      price: 500,
       quantity: 1,
     },
     {
@@ -87,7 +87,7 @@ export default {
       name: "Agua 750ml",
       img: "https://i.ibb.co/68CYDVh/icon-water750ml.png",
       type: "drinks",
-      price: 7,
+      price: 700,
       quantity: 1,
     },
     {
@@ -96,7 +96,7 @@ export default {
       name: "Bebida 500ml",
       img: "https://i.ibb.co/L6sbPMt/icon-soda500ml.png",
       type: "drinks",
-      price: 7,
+      price: 700,
       quantity: 1,
     },
     {
@@ -105,7 +105,7 @@ export default {
       name: "Bebida 750ml",
       img: "https://i.ibb.co/sjmsZgs/icon-soda750ml.png",
       type: "drinks",
-      price: 10,
+      price: 1000,
       quantity: 1,
     },
   ],
