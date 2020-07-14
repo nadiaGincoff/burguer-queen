@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import "./Product.css";
 
 class Products extends Component {
-  constructor() {
-    super();
-  }
-
   handleClick = (e) => {
     const product = {
       name: this.props.name,
