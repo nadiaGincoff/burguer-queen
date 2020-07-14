@@ -29,7 +29,6 @@ class Waiter extends Component {
     const index = this.products.findIndex((prod) => product.name === prod.name);
     //2: incrementar el atributo quantity +1
     this.products[index].quantity += 1;
-
     //3: Recargar Order con producto actualizados
     this.orderElement.current.loadProducts(this.products);
   };
@@ -75,6 +74,7 @@ class Waiter extends Component {
   };
 
   sendToKitchen = () => {
+
     // Utilizamos la referencia
     const total = this.orderElement.current.state.total;
 

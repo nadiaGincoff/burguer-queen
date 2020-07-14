@@ -1,5 +1,6 @@
 {
   "projects": {
-    "develop": "project-burguer-queen"
+    "develop": "project-burguer-queen",
+    "default": "project-burguer-queen"
   }
 }
