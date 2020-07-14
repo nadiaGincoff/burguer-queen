@@ -1,0 +1,55 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #eeeeee;
+  }
+  
+  .kitchenContainer {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  header {
+    background: linear-gradient(to right, #78bb55 0%, #99ff66 100%);
+    width: 100%;
+    height: 54px;
+    margin-bottom: 2%;
+  }
+  .cardContainer {
+    background: white;
+    width: 24%;
+    margin: 2%;
+    height: 68vh;
+  }
+  h1 {
+    width: 360px;
+    margin-left: 26px;
+    font-family: Livvic;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    display: flex;
+    align-items: flex-end;
+    letter-spacing: 0.05em;
+    color: #5a5a5a;
+  }
+  
+  @media only screen and (min-device-width: 1024px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+    h1 {
+      font-size: 25px;
+      margin-left: 35px;
+    }
+    header {
+      height: 16px;
+      margin-bottom: 0.5%;
+    }
+  
+    .order {
+      margin-top: 9vh;
+      border-radius: 16px;
+    }
+  }
