@@ -1,55 +1,126 @@
 * {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-  }
-  
-  body {
-    background-color: #eeeeee;
-  }
-  
-  .kitchenContainer {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  header {
-    background: linear-gradient(to right, #78bb55 0%, #99ff66 100%);
-    width: 100%;
-    height: 54px;
-    margin-bottom: 2%;
-  }
-  .cardContainer {
-    background: white;
-    width: 24%;
-    margin: 2%;
-    height: 68vh;
-  }
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #eeeeee;
+}
+
+.kitchenContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.kitchenName {
+  font-size: 17px;
+  text-align: left;
+  margin: 2%;
+  font-family: cursive;
+}
+
+.kitchenTable {
+  margin: 2%;
+  width: 50%;
+  font-family: cursive;
+}
+
+.kitchenDate {
+  margin: -9% 0% 1% 52%;
+  width: 43%;
+  font-family: cursive;
+}
+
+header {
+  background: linear-gradient(to right, #78bb55 0%, #99ff66 100%);
+  width: 100%;
+  height: 54px;
+  margin-bottom: 2%;
+}
+
+.cardContainer {
+  background: white;
+  width: 24%;
+  margin: 3% 0% 2% 7%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border-radius: 2%;
+}
+
+.kitchenProducts {
+  display: flex;
+  flex-direction: row;
+  font-family: cursive;
+  margin: -3% 0% 0% 0%;
+}
+
+.productName {
+  margin: 2%;
+  width: 80%;
+}
+
+.productQuantify {
+  width: 10%;
+  margin: 2%;
+}
+
+.checkbox {
+  display: flex;
+  flex-direction: row;
+  height: 10vh;
+}
+
+.check,
+.preparation {
+  width: 15%;
+  height: 83%;
+  margin: 2% 1% 2% 23%;
+  display: flex;
+}
+
+.preparationActive {
+  background: yellow;
+}
+
+.checkActive {
+  background: green;
+}
+
+h1 {
+  width: 360px;
+  margin-left: 26px;
+  font-family: Livvic;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  display: flex;
+  align-items: flex-end;
+  letter-spacing: 0.05em;
+  color: #5a5a5a;
+}
+
+hr {
+  border: 1px solid #78bb55;
+  width: 94%;
+  margin: 3% 0% 3% 2%;
+}
+
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
   h1 {
-    width: 360px;
-    margin-left: 26px;
-    font-family: Livvic;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 30px;
-    display: flex;
-    align-items: flex-end;
-    letter-spacing: 0.05em;
-    color: #5a5a5a;
+    font-size: 25px;
+    margin-left: 35px;
   }
-  
-  @media only screen and (min-device-width: 1024px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
-    h1 {
-      font-size: 25px;
-      margin-left: 35px;
-    }
-    header {
-      height: 16px;
-      margin-bottom: 0.5%;
-    }
-  
-    .order {
-      margin-top: 9vh;
-      border-radius: 16px;
-    }
+
+  header {
+    height: 16px;
+    margin-bottom: 0.5%;
   }
+
+  .order {
+    margin-top: 9vh;
+    border-radius: 16px;
+  }
+}

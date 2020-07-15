@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Table } from "reactstrap";
 import icon from "../../img/icon-delete.png";
-
+import "./Order.css";
 class Order extends Component {
   state = {
     products: [],
@@ -22,13 +22,17 @@ class Order extends Component {
     this.sumTotal();
   };
 
+  fontStyle = {
+    fontFamily: "Livvic",
+  };
+
   render() {
     const { products } = this.state;
 
     return (
       <div>
-        <Table striped bordered hover size="sm">
-          <thead>
+        <Table striped bordered hover size="sm" style={this.fontStyle}>
+          <thead style={this.tHeadStyle}>
             <tr>
               <th>Cantidad</th>
               <th>Producto</th>
@@ -41,25 +45,28 @@ class Order extends Component {
               ? products.map((product, key) => (
                   <tr key={key}>
                     <td>
-                      <div>
+                      <div className="quantity">
                         <button
-                          onClick={() => {
-                            this.props.increment(product);
-                          }}
-                        >
-                          +
-                        </button>
-                        <input
-                          className="quantity-input__screen"
-                          type="text"
-                          value={product.quantity}
-                        />
-                        <button
+                          className="decrement"
                           onClick={() => {
                             this.props.decrement(product);
                           }}
                         >
                           -
+                        </button>
+                        <input
+                          className="quantity-input"
+                          type="text"
+                          value={product.quantity}
+                        />
+
+                        <button
+                          className="increment"
+                          onClick={() => {
+                            this.props.increment(product);
+                          }}
+                        >
+                          +
                         </button>
                       </div>
                     </td>

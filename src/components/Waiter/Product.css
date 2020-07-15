@@ -25,7 +25,7 @@
 @keyframes toggle {
   from {
     transform: scale(0.6);
-    background: #bfe6ac;
+    background: #8af55f;
   }
 
   to {
@@ -34,33 +34,45 @@
 }
 
 .containerCardActive {
-  background: #7ec858;
+  background-color: #78bb55;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   animation: 200ms toggle ease;
 }
 
 .productCard {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  margin-top: 5%;
+}
+
+.item-img {
+  max-width: 60px;
+  max-height: 40px;
+}
+
+.card-name {
+  font-family: Livvic;
+  font-style: normal;
+  font-size: 20px;
+  margin-top: 10%;
 }
 
 .card-price {
-  font-family: Comfortaa;
+  font-family: Livvic;
   font-style: normal;
-  font-weight: bold;
-  font-size: 24px;
+  font-size: 30px;
   line-height: 27px;
-  display: flex;
-  align-items: flex-end;
   letter-spacing: 0.05em;
+  margin-bottom: 10%;
 }
+
 hr {
   margin-bottom: 20px;
   border: 0;
   border-top: 1px solid black;
 }
+
 @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
   hr {
     margin-bottom: 20px;
@@ -69,13 +81,54 @@ hr {
   }
 
   .containerCard {
-    height: 15vh;
-    width: 15vh;
-    margin: 8px 0px 0px 20px;
+    height: 16vh;
+    width: 16vh;
+    margin: 0px 0px 0px 21px
   }
 
   .item-img {
     max-width: 50px;
     max-height: 40px;
   }
+
+  .card-price {
+    font-family: Livvic;
+    font-style: normal;
+    font-size: 13px;
+    line-height: 27px;
+    letter-spacing: 0.05em;
+    margin-bottom: 4%;
+  }
+
+  .card-name {
+    font-size: 13px;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 768px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+  .containerCard {
+    height: 12vh;
+    width: 12vh;
+    margin-left: 30px;
+    margin: 0px 38px -15px 20px;
+  }
+
+  .item-img {
+    max-width: 50px;
+    max-height: 40px;
+  }
+
+  .card-price {
+    font-family: Livvic;
+    font-style: normal;
+    font-size: 13px;
+    line-height: 27px;
+    letter-spacing: 0.05em;
+    margin-bottom: 4%;
+  }
+
+  .card-name {
+    font-size: 13px;
+  }
+
 }

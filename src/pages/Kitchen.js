@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import "./Kitchen.css";
 import db from "../firebase";
-
+import preparation from "../img/preparation.png";
+import check from "../img/check.png";
 class Kitchen extends Component {
   state = {
     order: [],
   };
 
-  componentDidMount() {
+  componentDidMount(date, desc) {
     db.collection("orders").onSnapshot((snapShots) => {
       this.setState({
         order: snapShots.docs.map((doc) => {
-          console.log(doc.data().products);
           return {
             id: doc.id,
             data: doc.data().products,
@@ -25,26 +25,40 @@ class Kitchen extends Component {
     });
   }
 
+  imgClick = (e) => {
+    e.target.classList.add("preparationActive");
+  };
+
+  checkClick = (e) => {
+    e.target.classList.add("checkActive");
+  };
+
   render() {
     const { order } = this.state;
-
     return (
       <div className="kitchenContainer">
         <header className="header"> </header>
         {order.map((item, key) => (
           <div className="cardContainer" key={key}>
-            <p className="name">Cliente : {item.name}</p>
-            <p className="table">Mesa : {item.table}</p>
-            <p className="date">Fecha : {item.date}</p>
+            <p className="kitchenName">{item.name}</p>
+            <hr></hr>
+            <p className="kitchenTable">Mesa : {item.table}</p>
+            <p className="kitchenDate">{item.date}</p>
+            <hr></hr>
             {item.data.map((product) => {
+              //console.log(dato, "dato");
               return (
-                <div>
-                  <p>{product.name}</p>
-                  <p>{product.quantity}</p>
+                <div className="kitchenProducts">
+                  <p className="productName">{product.name}</p>
+                  <p className="productQuantify">{product.quantity}</p>
                 </div>
               );
             })}
-            <p className="total">Total : {item.total}</p>
+            <hr></hr>
+            <div className="checkbox">
+              <input className="inputCheckbox" type="checkbox" /> Orden lista
+              <input className="inputCheckbox" type="checkbox" /> Entregado
+            </div>
           </div>
         ))}
       </div>

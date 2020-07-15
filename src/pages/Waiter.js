@@ -8,6 +8,7 @@ import Menu from "../Menu";
 import "../components/Waiter/ClientInfo.css";
 import db from "../firebase.js";
 import { Link } from "react-router-dom";
+import icon from "../img/icon-listo.png";
 
 const menu = Menu.menu;
 class Waiter extends Component {
@@ -35,7 +36,6 @@ class Waiter extends Component {
   };
 
   decrementProductQuantity = (product) => {
-    //1: buscar el producto que quiero incrementar en this.products
     // Devuelve el indice del producto en el array products
     const index = this.products.findIndex((prod) => product.name === prod.name);
 
@@ -43,10 +43,8 @@ class Waiter extends Component {
       return;
     }
 
-    //2: incrementar el atributo quantity +1
     this.products[index].quantity -= 1;
 
-    //5: Recargar Order con producto actualizados
     this.orderElement.current.loadProducts(this.products);
   };
 
@@ -91,6 +89,7 @@ class Waiter extends Component {
       .then(function (docRef) {
         console.log("Document written with ID: ", docRef.id);
         alert("Pedido enviado a cocina");
+        window.location.reload(false);
       })
 
       .catch(function (error) {
@@ -99,10 +98,18 @@ class Waiter extends Component {
       });
   };
 
+  toConfirmOrder = (e) => {
+    if (window.confirm("Enviar pedido a cocina?")) {
+      this.sendToKitchen();
+      e.preventDefault();
+    }
+  };
+
   render() {
     return (
       <div className="waiterContainer">
         <header className="header"> </header>
+
         <div className="newOrderInfo">
           <div className="clientInfo">
             <ClientInfo
@@ -121,7 +128,7 @@ class Waiter extends Component {
             />
           </div>
           <div>
-            <h1> Desayuno </h1> <hr size="3px" />
+            <h1 className="menuTitle"> Desayuno </h1> <hr size="3px" />
             {this.state.menu
               .filter((product) => {
                 return product.type === "breakfast";
@@ -140,7 +147,7 @@ class Waiter extends Component {
               })}
           </div>
           <div>
-            <h1> Almuerzo </h1> <hr size="3px" />
+            <h1 className="menuTitle"> Almuerzo </h1> <hr size="3px" />
             {this.state.menu
               .filter((product) => {
                 return product.type === "launch";
@@ -159,7 +166,7 @@ class Waiter extends Component {
               })}
           </div>
           <div>
-            <h1> Para beber </h1> <hr size="3px" />
+            <h1 className="menuTitle"> Para beber </h1> <hr size="3px" />
             {this.state.menu
               .filter((product) => {
                 return product.type === "drinks";
@@ -179,7 +186,13 @@ class Waiter extends Component {
           </div>
         </div>
         <div className="containerOrder">
-          <div className="order">
+          <Link to="/cocina">
+            <div className="goToKitchen">
+              <span className="goToKitchenSpan">Ver pedidos</span>
+              <img src={icon} alt="logo" className="goToKitchenLogo"></img>
+            </div>
+          </Link>
+          <div>
             <Order
               ref={this.orderElement}
               delete={this.deleteProduct}
@@ -188,11 +201,9 @@ class Waiter extends Component {
             ></Order>
           </div>
           <div className="summary">
-            <Link to="/cocina">
-              <button className="buttonEnviar" onClick={this.sendToKitchen}>
-                Enviar a cocina
-              </button>
-            </Link>
+            <button className="buttonEnviar" onClick={this.toConfirmOrder}>
+              Enviar a cocina
+            </button>
             <button className="buttonCancelar"> Cancelar pedido </button>
           </div>
         </div>
