@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import "./Kitchen.css";
 import db from "../firebase";
-import preparation from "../img/preparation.png";
-import check from "../img/check.png";
+import { Button } from "reactstrap";
+import { Link } from "react-router-dom";
+
 class Kitchen extends Component {
   state = {
     order: [],
@@ -25,21 +26,22 @@ class Kitchen extends Component {
     });
   }
 
-  imgClick = (e) => {
-    e.target.classList.add("preparationActive");
-  };
-
-  checkClick = (e) => {
-    e.target.classList.add("checkActive");
-  };
-
   render() {
     const { order } = this.state;
+
     return (
       <div className="kitchenContainer">
-        <header className="header"> </header>
+        <header className="header">
+          <Link to="/boleta">
+            <div className="generarBoleta">
+              <Button color="warning" onClick={this.ticket}>
+                Boletas
+              </Button>
+            </div>
+          </Link>
+        </header>
         {order.map((item, key) => (
-          <div className="cardContainer" key={key}>
+          <div className="cardContainer" key={key.id}>
             <p className="kitchenName">{item.name}</p>
             <hr></hr>
             <p className="kitchenTable">Mesa : {item.table}</p>
@@ -55,9 +57,17 @@ class Kitchen extends Component {
               );
             })}
             <hr></hr>
-            <div className="checkbox">
-              <input className="inputCheckbox" type="checkbox" /> Orden lista
-              <input className="inputCheckbox" type="checkbox" /> Entregado
+            <div className="listo">
+              <p className="title"> Orden Lista</p>
+              <div className="checkbox">
+                <input id={key} type="checkbox" value="1" />
+                <label for={key}></label>
+              </div>
+              <p className="titleDos"> Entregado</p>
+              <div className="checkboxDos">
+                <input id={key} type="checkbox" value="1" />
+                <label for={key}></label>
+              </div>
             </div>
           </div>
         ))}
