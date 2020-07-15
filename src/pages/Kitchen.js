@@ -1,28 +1,28 @@
 import React, { Component } from "react";
 import "./Kitchen.css";
 import db from "../firebase";
-import preparation from "../img/preparation.png";
-import check from "../img/check.png";
 class Kitchen extends Component {
   state = {
     order: [],
   };
 
-  componentDidMount(date, desc) {
-    db.collection("orders").onSnapshot((snapShots) => {
-      this.setState({
-        order: snapShots.docs.map((doc) => {
-          return {
-            id: doc.id,
-            data: doc.data().products,
-            date: doc.data().date,
-            name: doc.data().name,
-            table: doc.data().table,
-            total: doc.data().total,
-          };
-        }),
+  componentDidMount(date, asc) {
+    db.collection("orders")
+      .orderBy("date", "asc")
+      .onSnapshot((snapShots) => {
+        this.setState({
+          order: snapShots.docs.map((doc) => {
+            return {
+              id: doc.id,
+              data: doc.data().products,
+              date: doc.data().date,
+              name: doc.data().name,
+              table: doc.data().table,
+              total: doc.data().total,
+            };
+          }),
+        });
       });
-    });
   }
 
   imgClick = (e) => {
@@ -46,7 +46,6 @@ class Kitchen extends Component {
             <p className="kitchenDate">{item.date}</p>
             <hr></hr>
             {item.data.map((product) => {
-              //console.log(dato, "dato");
               return (
                 <div className="kitchenProducts">
                   <p className="productName">{product.name}</p>
@@ -67,3 +66,11 @@ class Kitchen extends Component {
 }
 
 export default Kitchen;
+
+/* TO DO:
+
+1: Obtener fecha actual al hacer click en el checkbox
+2: Comparar y obtener diferencia conlafecha de creacion
+3: Actualizar el pedido con nuevo estado, fecha de entrega, tiempo de espera
+
+*/
