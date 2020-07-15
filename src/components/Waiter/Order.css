@@ -1,0 +1,50 @@
+.order {
+  margin-top: 2vh;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.increment,
+.decrement {
+  display: block;
+  width: 22px;
+  height: 23px;
+  margin: 0;
+  background: #ffffff;
+  text-decoration: none;
+  text-align: center;
+  line-height: 23px;
+  outline: none;
+  border: 0.5px solid rgb(159, 160, 159)
+}
+
+.increment:hover,
+.decrement:hover {
+  background: #abafa8;
+  color: #fff;
+}
+
+.decrement {
+  border-radius: 3px 0 0 3px;
+}
+
+.increment {
+  border-radius: 0 3px 3px 0;
+}
+
+.quantity-input {
+  width: 32px;
+  height: 23px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  border: none;
+  border-top: 1px solid #757575;
+  border-bottom: 1px solid #757575;
+  background: #fff;
+}
