@@ -19,6 +19,7 @@ class Ticket extends Component {
             name: doc.data().name,
             table: doc.data().table,
             total: doc.data().total,
+            readyOrderDate: doc.data().finishedOrderDate,
           };
         }),
       });
@@ -36,7 +37,9 @@ class Ticket extends Component {
             <p className="kitchenName">Cliente : {item.name}</p>
             <hr></hr>
             <p className="kitchenDateEntrada">Hora entrada : {item.date}</p>
-            <p className="kitchenDateSalida">Hora salida : {item.date}</p>
+            <p className="kitchenDateSalida">
+              Hora salida : {item.readyOrderDate}
+            </p>
             <hr></hr>
             {item.data.map((product) => {
               //console.log(dato, "dato");

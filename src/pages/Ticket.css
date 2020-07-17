@@ -33,16 +33,19 @@ body {
   font-size: 21px;
   font-family: cursive;
 }
-header {
-  background: linear-gradient(to right, #78bb55 0%, #99ff66 100%);
+
+.header {
+  position: fixed;
+   background: linear-gradient(to right, #78bb55 0%, #5a5a5a 100%);
   width: 100%;
   height: 54px;
   margin-bottom: 2%;
 }
+
 .cardContainer {
   background: white;
   width: 24%;
-  margin: 3% 0% 2% 7%;
+  margin: 6% 0% 2% 7%;
   height: fit-content;
   display: flex;
   flex-direction: column;

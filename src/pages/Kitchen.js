@@ -1,51 +1,102 @@
 import React, { Component } from "react";
 import "./Kitchen.css";
 import db from "../firebase";
+import { Button } from "reactstrap";
+import { Link } from "react-router-dom";
+
 class Kitchen extends Component {
   state = {
-    order: [],
+    orders: [],
   };
 
-  componentDidMount(date, asc) {
-    db.collection("orders")
-      .orderBy("date", "asc")
-      .onSnapshot((snapShots) => {
-        this.setState({
-          order: snapShots.docs.map((doc) => {
-            return {
-              id: doc.id,
-              data: doc.data().products,
-              date: doc.data().date,
-              name: doc.data().name,
-              table: doc.data().table,
-              total: doc.data().total,
-            };
-          }),
-        });
+  componentDidMount(date, desc) {
+    db.collection("orders").onSnapshot((snapShots) => {
+      this.setState({
+        orders: snapShots.docs.map((doc) => {
+          return {
+            id: doc.id,
+            data: doc.data().products,
+            date: doc.data().date,
+            name: doc.data().name,
+            table: doc.data().table,
+            total: doc.data().total,
+          };
+        }),
       });
+    });
   }
 
-  imgClick = (e) => {
-    e.target.classList.add("preparationActive");
+  // Obtenemos el elemento de la orden a traves de su ID para acceder a sus propiedades y actualizarlas.
+  // find() devuelve el valor del primer elemento del array que cumple la función de prueba proporcionada
+  updateOrder = (orderId) => {
+
+    let order = this.state.orders.find((order) => order.id === orderId);
+    let date = new Date().toLocaleString();
+
+    db.collection("orders")
+      .doc(order.id)
+      .update({
+        finishedOrderDate: date,
+        clientReady: true,
+      })
+      .then(() => {
+        console.log("Document successfully updated!", 'actualizamos la fecha de orden :D');
+      })
+      .catch((error) => {
+        console.error("Error updating document: ", error);
+      });
+
   };
 
-  checkClick = (e) => {
-    e.target.classList.add("checkActive");
+  orderDelivered = (orderId) => {
+
+    let order = this.state.orders.find((order) => order.id === orderId);
+
+    db.collection("orders")
+      .doc(order.id)
+      .update({
+        delivered: true,
+      })
+      .then(() => {
+        // cambiar color del boton
+        console.log("The order has been delivered!");
+      })
+      .catch((error) => {
+        console.error("Error updating document: ", error);
+      });
   };
 
   render() {
-    const { order } = this.state;
+    const { orders } = this.state;
+
     return (
       <div className="kitchenContainer">
-        <header className="header"> </header>
-        {order.map((item, key) => (
-          <div className="cardContainer" key={key}>
-            <p className="kitchenName">{item.name}</p>
+        <header className="header">
+        <Link to="/">
+            <div>
+              <button className="goToHome">Home</button>
+            </div>
+          </Link>
+          <Link to="/mesero">
+            <div>
+              <button className="goToKitchen">Crear pedido</button>
+            </div>
+          </Link>
+          <Link to="/boleta">
+              <div>
+                <button className="goToKitchen" onClick={this.ticket}>Boletas</button>
+              </div>
+          </Link>
+        </header>
+        {orders.map((order, key) => (
+          <div className="cardContainer" key={key.id}>
+            <p className="kitchenName">{order.name}</p>
+            <hr className="hr"></hr>
+            <p className="kitchenTable">Mesa : {order.table}</p>
+            <p className="kitchenDate">{order.date}</p>
             <hr></hr>
-            <p className="kitchenTable">Mesa : {item.table}</p>
-            <p className="kitchenDate">{item.date}</p>
-            <hr></hr>
-            {item.data.map((product) => {
+            {order.data.map((product) => {
+              //console.log(dato, "dato");
               return (
                 <div className="kitchenProducts">
                   <p className="productName">{product.name}</p>
@@ -53,10 +104,28 @@ class Kitchen extends Component {
                 </div>
               );
             })}
-            <hr></hr>
-            <div className="checkbox">
-              <input className="inputCheckbox" type="checkbox" /> Orden lista
-              <input className="inputCheckbox" type="checkbox" /> Entregado
+            <hr className="hr"></hr>
+            <div className="listo">
+              <p className="title"> Orden Lista</p>
+              <div className="checkbox">
+                <button
+                  onClick={() => {
+                    this.updateOrder(order.id);
+                  }}
+                >
+                  Pedido LISTO JEJE
+                </button>
+              </div>
+              <p className="titleDos"> Entregado</p>
+              <div className="checkboxDos">
+                <button
+                  onClick={() => {
+                    this.orderDelivered(order.id);
+                  }}
+                >
+                  PEDIDO ENTREGADO JEJEJKH
+                </button>
+              </div>
             </div>
           </div>
         ))}
@@ -66,11 +135,3 @@ class Kitchen extends Component {
 }
 
 export default Kitchen;
-
-/* TO DO:
-
-1: Obtener fecha actual al hacer click en el checkbox
-2: Comparar y obtener diferencia conlafecha de creacion
-3: Actualizar el pedido con nuevo estado, fecha de entrega, tiempo de espera
-
-*/

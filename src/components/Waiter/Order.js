@@ -26,6 +26,10 @@ class Order extends Component {
     fontFamily: "Livvic",
   };
 
+  trFooterStyle = {
+    fontSize: '20px',
+  }
+
   render() {
     const { products } = this.state;
 
@@ -89,8 +93,8 @@ class Order extends Component {
             <tr>
               <th></th>
               <th></th>
-              <th>Total</th>
-              <th>{"$" + this.state.total}</th>
+              <th style={this.trFooterStyle}>Total</th>
+              <th style={this.trFooterStyle}>{"$" + this.state.total}</th>
             </tr>
           </tfoot>
         </Table>

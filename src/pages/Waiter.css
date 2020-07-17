@@ -8,78 +8,99 @@ body {
   background-color: #eeeeee;
 }
 
-.newOrderInfo {
-  width: 55%;
-  height: 103vh;
-  background-color: #e7e7e7;
-  margin-left: 15px;
-  margin-right: 22px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 15px;
-}
-.goToKitchen {
+.header {
   display: flex;
   justify-content: space-around;
-  margin-top: -3vh;
+  background: linear-gradient(to right, #78bb55 0%, #5a5a5a 100%);
+  width: 100%;
+  height: 60px;
+  margin-bottom: 2%;
+}
+
+
+.goToKitchen {
+  font-family: Livvic;
+  letter-spacing: 0.05em;
+  font-size: 20px;
+  color: #eeeeee;
+  /*margin: 0vh 0vh 0vh 110%;*/
+  border: none;
+  padding: 12.5px;
+  background: none;
+  outline: none;
+}
+
+.goToHome {
+  font-family: Livvic;
+  letter-spacing: 0.05em;
+  font-size: 20px;
+  color: #eeeeee;
+  margin-left: 1%;
+  border: none;
+  padding: 12.5px;
+  background: none;
 }
 
 .goToKitchenLogo {
   width: 10%;
 }
 
-.goToKitchenSpan {
-  font-family: Livvic;
-  letter-spacing: 0.05em;
-  color: #5a5a5a;
-  margin: 2vh 0vh 0vh 36vh;
-}
 .waiterContainer {
   display: flex;
   flex-wrap: wrap;
 }
 
-header {
-  background: linear-gradient(to right, #78bb55 0%, #99ff66 100%);
-  width: 100%;
-  height: 54px;
-  margin-bottom: 2%;
+.newOrderInfo {
+  width: 36%;
+  height: auto;
+  background-color: #eeeeee;
+  margin-left: 10%;
+  margin-right: 22px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  padding-bottom: 2%;
+  margin-top: 5%;
 }
 
-h1 {
+.menuTitle {
   width: 360px;
   margin-left: 26px;
   font-family: Livvic;
   font-style: normal;
   font-weight: normal;
-  font-size: 30px;
+  font-size: 24px;
   display: flex;
   align-items: flex-end;
   letter-spacing: 0.05em;
   color: #5a5a5a;
 }
 
-hr {
-  margin-left: 26px;
-  margin-right: 26px;
+.hr {
+  border: 0.5px solid #9292924b;
+  width: 94%;
   color: #5a5a5a;
-}
-.icon-delete {
-  margin-left: 40%;
-  width: 15px;
+  margin: 0% 0% 3% 2%;
 }
 
 .containerOrder {
+  margin-top: 5%;
   width: 40%;
   display: flex;
   flex-direction: column;
+}
+
+.icon-delete {
+  margin-left: 40%;
+  width: 15px;
 }
 
 .summary {
   position: absolute;
   width: 32%;
   height: 21vh;
-  margin: 563px 54px 7px;
+  margin: 34% 5% 7px;
 }
+
 
 .buttonEnviar,
 .buttonCancelar {
@@ -99,6 +120,8 @@ hr {
   letter-spacing: 0.05em;
   color: #ffffff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  outline: none;
+  border: none;
 }
 
 .buttonCancelar {
@@ -106,22 +129,20 @@ hr {
 }
 
 @media only screen and (min-device-width: 1024px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+  .goToHome {
+    /*margin-left: -233%%;*/
+
+  }
   .goToKitchen {
-    margin-top: 1vh;
-    margin-left: 0vh;
+    /*margin: 0vh 0vh 0vh 203%;*/
   }
 
   .goToKitchenLogo {
     width: 11%;
   }
 
-  .newOrderInfo {
-    font-size: 25px;
-    margin-left: 2vh;
-  }
-
-  header {
-    height: 16px;
+  .header {
+    height: 6vh;
     margin-bottom: 0.5%;
   }
 
@@ -130,23 +151,31 @@ hr {
   }
 
   .newOrderInfo {
-    height: 94vh;
-    width: 55%;
-    margin-top: 1vh;
-    margin-left: 2vh;
+    font-size: 25px;
+    margin-left: 3vh;
+    height: 86vh;
+    width: 51%;
+    margin-top: 10vh;
+  }
+  .containerOrder{
+    width: 43%;
+    margin-top: 10vh;
   }
 
   .buttonEnviar,
   .buttonCancelar {
-    height: 60px;
+    height: 51px;
     width: 100%;
+    font-size: 20px;
   }
 
   .summary {
     position: fixed;
-    width: 37%;
+    display: flex;
+    justify-content: space-around;
+    width: 44%;
     height: 61px;
-    margin: 540px 0px 16px;
+    margin: 59% -1%;
   }
 
   .order {
@@ -156,9 +185,15 @@ hr {
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 768px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+  .header {
+    height: 6vh;
+    margin-bottom: 0.5%;
+    background: linear-gradient(to right, #78bb55 0%, #5a5a5a 100%);
+
+  }
   .goToKitchen {
-    margin-top: -70vh;
-    margin-left: 23vh;
+    margin-top: 0vh;
+    margin-left: 0vh;
   }
 
   .goToKitchenLogo {
@@ -169,28 +204,33 @@ hr {
     font-family: Livvic;
     letter-spacing: 0.05em;
     color: #5a5a5a;
-    margin: 1vh 0vh 0vh 36vh;
+    margin: 2vh 0vh 0vh 36vh;
   }
 
   .newOrderInfo {
     width: 100%;
-    height: 62vh;
-    margin-left: 1vh;
+    height: 70vh;
+    margin: 7vh 1vh 1vh 1vh;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   }
 
   .menuTitle {
     font-size: 20px;
-    margin-left: 35px;
+    margin-left: 30px;
   }
 
-  hr {
+  .hr {
     margin-top: 0px;
+    margin: 0% 0% 3% 2%;
   }
 
   .containerOrder {
     width: 100%;
     margin-top: 2vh;
     flex-direction: space-around;
+    margin-left: 1vh;
+    margin-right: 1vh;
+
   }
 
   .buttonEnviar,
@@ -200,10 +240,14 @@ hr {
   }
 
   .summary {
-    position: relative;
-    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
     height: 61px;
-    margin: 0px 50px 0px;
+    position: relative;
+    /* width: 80%; */
+    height: 61px;
+    margin:  2% 5% 5% 5%;
   }
 
   .order {
