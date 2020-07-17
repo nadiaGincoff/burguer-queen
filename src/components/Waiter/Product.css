@@ -9,12 +9,12 @@
 }
 
 .containerCard {
-  height: 18vh;
-  width: 18vh;
+  height: 15vh;
+  width: 15vh;
   border: none;
   border-radius: 12%;
   cursor: pointer;
-  margin: 3px 13px -6px 39px;
+  margin: 0px 0px 0px 3%;
   background: #ffffff;
 }
 
@@ -36,6 +36,7 @@
 .containerCardActive {
   background: #7ec858;
   animation: 200ms toggle ease;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 .productCard {
@@ -44,6 +45,7 @@
   justify-content: center;
   align-items: center;
   margin-top: 5%;
+
 }
 
 .card-price {
@@ -56,23 +58,18 @@
   align-items: flex-end;
   letter-spacing: 0.05em;
 }
-hr {
-  margin-bottom: 20px;
-  border: 0;
-  border-top: 1px solid black;
-}
 
 @media only screen and (min-device-width: 1024px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
-  hr {
+  .hr {
     margin-bottom: 20px;
     border: 0;
     border-top: 1px solid black;
   }
 
   .containerCard {
-    height: 16vh;
-    width: 16vh;
-    margin: 0px 0px 0px 21px;
+    height: 15vh;
+    width: 15vh;
+    margin: 0px 0px 0px 12px;
   }
 
   .item-img {
@@ -96,10 +93,10 @@ hr {
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 768px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
   .containerCard {
-    height: 12vh;
-    width: 12vh;
+    height: 14vh;
+    width: 14vh;
     margin-left: 30px;
-    margin: 0px 38px -15px 20px;
+    margin: -3% 1% 0px 4%;
   }
 
   .item-img {
@@ -118,5 +115,11 @@ hr {
 
   .card-name {
     font-size: 13px;
+  }
+
+  .hr {
+    border: 1px solid #9292924b;
+    width: 94%;
+    margin: 0% 0% 3% 3%;
   }
 }

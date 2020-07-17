@@ -1,16 +1,21 @@
-.clientName, .clientTable {
+.clientName,
+.clientTable {
+  font-family: Livvic;
+  font-size: 24px;
   width: 70%;
   height: 5vh;
   border: none;
-  border-bottom:1px solid #868686;
+  border-bottom: 0.5px solid #7c7c7c;
   border-radius: 15px 0px 0px 0px;
   outline: none;
   padding-left: 26px;
 
 }
-.clientName::placeholder, .clientTable::placeholder {
+
+.clientName::placeholder,
+.clientTable::placeholder {
   font-family: Livvic;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 30px;
   display: flex;
   align-items: flex-end;
@@ -26,19 +31,36 @@
   border-left: 1px solid #868686;
 }
 
-@media only screen
-  and (min-device-width: 1024px)
-  and (max-device-width: 1024px)
-  and (orientation: landscape)
-  and (-webkit-min-device-pixel-ratio: 2) {
-    .clientName::placeholder, .clientTable::placeholder {
-      font-family: Livvic;
-      font-size: 20px;
-      line-height: 30px;
-      display: flex;
-      align-items: flex-end;
-      letter-spacing: 0.05em;
-      width: 264px;
-      height: 42.7px;
-    }
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+
+  .clientName::placeholder,
+  .clientTable::placeholder {
+    font-family: Livvic;
+    font-size: 20px;
+    line-height: 30px;
+    display: flex;
+    align-items: flex-end;
+    letter-spacing: 0.05em;
+    width: 264px;
+    height: 42.7px;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 768px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+
+  .clientName, .clientTable {
+    margin-left: 35px;
+  }
+
+  .clientName::placeholder,
+  .clientTable::placeholder {
+    font-family: Livvic;
+    font-size: 20px;
+    line-height: 30px;
+    display: flex;
+    align-items: flex-end;
+    letter-spacing: 0.05em;
+    width: 264px;
+    height: 42.7px;
+  }
 }

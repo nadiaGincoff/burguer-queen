@@ -8,7 +8,6 @@ class Products extends Component {
       price: this.props.price,
       quantity: 1,
     };
-
     this.props.save(product);
     e.target.classList.add("containerCardActive");
   };
