@@ -96,25 +96,6 @@ body {
   flex-direction: row-reverse;
   margin: 1% 1% 0% 0%;
 }
-.btn-warning {
-  color: #fff;
-  background-color: #f0ad4e;
-  border-color: #eea236;
-  width: 17%;
-}
-.checkbox {
-  display: flex;
-  flex-direction: row;
-  height: 10vh;
-}
-
-.check,
-.preparation {
-  width: 15%;
-  height: 83%;
-  margin: 2% 1% 2% 23%;
-  display: flex;
-}
 
 h1 {
   width: 360px;
@@ -134,82 +115,31 @@ h1 {
   width: 94%;
   margin: 3% 0% 3% 2%;
 }
-
+.entregado,
 .listo {
-  flex-direction: row;
-
+  border: 1px solid #868686;
+  width: 35%;
+  height: 57%;
+  background: #c3c3c3;
+  font-size: 11px;
+  font-family: cursive;
+  border-radius: 5px;
+  margin: 4% 7% 0% 6%;
+}
+.listoActivo {
+  background: #e18d29;
+  color: white;
+}
+.entregadoActivo {
+  background: #30932e;
+  color: white;
+}
+.botonesKitchen {
   display: flex;
-  height: 11vh;
-}
-.titleDos,
-.title {
-  width: 30%;
-  height: 27%;
-  margin-left: 7%;
-}
-.checkbox > input[type="checkbox"] {
-  visibility: hidden;
-}
-.checkboxDos,
-.checkbox {
-  position: relative;
-  display: block;
-  width: 80px;
-  height: 26px;
-  margin: 9% 20% 0% -30%;
-  background: #fff;
-  border: 1px solid #2e2e2e;
-  border-radius: 2px;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-}
-.checkboxDos:after,
-.checkbox:after {
-  position: absolute;
-  display: inline;
-  right: 10px;
-  content: "no";
-  color: #e53935;
-  font: 12px/26px Arial, sans-serif;
-  font-weight: bold;
-  text-transform: capitalize;
-  z-index: 0;
-}
-.checkboxDos:before,
-.checkbox:before {
-  position: absolute;
-  display: inline;
-  left: 10px;
-  content: "yes";
-  color: #43a047;
-  font: 12px/26px Arial, sans-serif;
-  font-weight: bold;
-  text-transform: capitalize;
-  z-index: 0;
-}
-.checkboxDos label,
-.checkbox label {
-  position: absolute;
-  display: block;
-  top: 3px;
-  left: 3px;
-  width: 34px;
-  height: 20px;
-  background: #2e2e2e;
-  cursor: pointer;
-  transition: all 0.5s linear;
-  -webkit-transition: all 0.5s linear;
-  -moz-transition: all 0.5s linear;
-  border-radius: 2px;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  z-index: 1;
-}
-.checkboxDos input[type="checkbox"]:checked + label {
-  left: 43px;
-}
-.checkbox input[type="checkbox"]:checked + label {
-  left: 43px;
+  flex-direction: row;
+  font-size: 11px;
+  font-family: cursive;
+  height: 9vh;
 }
 @media only screen and (min-device-width: 1024px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
   h1 {
