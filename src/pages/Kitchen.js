@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import "./Kitchen.css";
 import db from "../firebase";
-import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
-
 class Kitchen extends Component {
   state = {
     orders: [],
@@ -28,10 +26,10 @@ class Kitchen extends Component {
 
   // Obtenemos el elemento de la orden a traves de su ID para acceder a sus propiedades y actualizarlas.
   // find() devuelve el valor del primer elemento del array que cumple la función de prueba proporcionada
-  updateOrder = (orderId) => {
-
+  updateOrder = (orderId, e) => {
     let order = this.state.orders.find((order) => order.id === orderId);
     let date = new Date().toLocaleString();
+    e.target.classList.add("listoActivo");
 
     db.collection("orders")
       .doc(order.id)
@@ -40,25 +38,22 @@ class Kitchen extends Component {
         clientReady: true,
       })
       .then(() => {
-        console.log("Document successfully updated!", 'actualizamos la fecha de orden :D');
+        console.log("actualizamos la fecha de orden :D");
       })
       .catch((error) => {
         console.error("Error updating document: ", error);
       });
-
   };
 
-  orderDelivered = (orderId) => {
-
+  orderDelivered = (orderId, e) => {
     let order = this.state.orders.find((order) => order.id === orderId);
-
+    e.target.classList.add("entregadoActivo");
     db.collection("orders")
       .doc(order.id)
       .update({
         delivered: true,
       })
       .then(() => {
-        // cambiar color del boton
         console.log("The order has been delivered!");
       })
       .catch((error) => {
@@ -72,7 +67,7 @@ class Kitchen extends Component {
     return (
       <div className="kitchenContainer">
         <header className="header">
-        <Link to="/">
+          <Link to="/">
             <div>
               <button className="goToHome">Home</button>
             </div>
@@ -83,9 +78,11 @@ class Kitchen extends Component {
             </div>
           </Link>
           <Link to="/boleta">
-              <div>
-                <button className="goToKitchen" onClick={this.ticket}>Boletas</button>
-              </div>
+            <div>
+              <button className="goToKitchen" onClick={this.ticket}>
+                Boletas
+              </button>
+            </div>
           </Link>
         </header>
         {orders.map((order, key) => (
@@ -105,27 +102,24 @@ class Kitchen extends Component {
               );
             })}
             <hr className="hr"></hr>
-            <div className="listo">
-              <p className="title"> Orden Lista</p>
-              <div className="checkbox">
-                <button
-                  onClick={() => {
-                    this.updateOrder(order.id);
-                  }}
-                >
-                  Pedido LISTO JEJE
-                </button>
-              </div>
-              <p className="titleDos"> Entregado</p>
-              <div className="checkboxDos">
-                <button
-                  onClick={() => {
-                    this.orderDelivered(order.id);
-                  }}
-                >
-                  PEDIDO ENTREGADO JEJEJKH
-                </button>
-              </div>
+            <div className="botonesKitchen">
+              <button
+                className="listo"
+                onClick={(e) => {
+                  this.updateOrder(order.id, e);
+                }}
+              >
+                Orden lista
+              </button>
+
+              <button
+                className="entregado"
+                onClick={(e) => {
+                  this.orderDelivered(order.id, e);
+                }}
+              >
+                Entregado
+              </button>
             </div>
           </div>
         ))}

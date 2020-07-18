@@ -9,7 +9,6 @@ import "../components/Waiter/ClientInfo.css";
 import db from "../firebase.js";
 import { Link } from "react-router-dom";
 
-
 const menu = Menu.menu;
 class Waiter extends Component {
   //variables locales o atributos
@@ -111,7 +110,7 @@ class Waiter extends Component {
       e.preventDefault();
       window.location.reload(false);
     }
-  }
+  };
 
   render() {
     return (
@@ -146,7 +145,8 @@ class Waiter extends Component {
             />
           </div>
           <div>
-            <h1 className="menuTitle"> Desayuno </h1> <hr className="hr" size="3px" />
+            <h1 className="menuTitle"> Desayuno </h1>{" "}
+            <hr className="hr" size="3px" />
             {this.state.menu
               .filter((product) => {
                 return product.type === "breakfast";
@@ -165,7 +165,8 @@ class Waiter extends Component {
               })}
           </div>
           <div>
-            <h1 className="menuTitle"> Almuerzo </h1> <hr className="hr" size="3px" />
+            <h1 className="menuTitle"> Almuerzo </h1>{" "}
+            <hr className="hr" size="3px" />
             {this.state.menu
               .filter((product) => {
                 return product.type === "launch";
@@ -184,7 +185,8 @@ class Waiter extends Component {
               })}
           </div>
           <div>
-            <h1 className="menuTitle"> Para beber </h1> <hr className="hr" size="3px" />
+            <h1 className="menuTitle"> Para beber </h1>{" "}
+            <hr className="hr" size="3px" />
             {this.state.menu
               .filter((product) => {
                 return product.type === "drinks";
@@ -216,7 +218,10 @@ class Waiter extends Component {
             <button className="buttonEnviar" onClick={this.toConfirmOrder}>
               Enviar a cocina
             </button>
-            <button className="buttonCancelar" onClick={this.cleanOrder}> Cancelar pedido </button>
+            <button className="buttonCancelar" onClick={this.cleanOrder}>
+              {" "}
+              Cancelar pedido{" "}
+            </button>
           </div>
         </div>
       </div>

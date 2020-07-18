@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Ticket.css";
 import db from "../firebase";
 import { Button } from "reactstrap";
+import { Link } from "react-router-dom";
 
 class Ticket extends Component {
   state = {
@@ -31,7 +32,23 @@ class Ticket extends Component {
 
     return (
       <div className="kitchenContainer">
-        <header className="header"> </header>
+        <header className="header">
+          <Link to="/">
+            <div>
+              <button className="goToHome">Home</button>
+            </div>
+          </Link>
+          <Link to="/mesero">
+            <div>
+              <button className="goToKitchen">Crear pedido</button>
+            </div>
+          </Link>
+          <Link to="/cocina">
+            <div>
+              <button className="goToKitchen">Cocina</button>
+            </div>
+          </Link>
+        </header>
         {order.map((item, key) => (
           <div className="cardContainer" key={key}>
             <p className="kitchenName">Cliente : {item.name}</p>
