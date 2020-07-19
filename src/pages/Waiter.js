@@ -219,8 +219,7 @@ class Waiter extends Component {
               Enviar a cocina
             </button>
             <button className="buttonCancelar" onClick={this.cleanOrder}>
-              {" "}
-              Cancelar pedido{" "}
+              Cancelar pedido
             </button>
           </div>
         </div>

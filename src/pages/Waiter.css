@@ -129,14 +129,6 @@ body {
 }
 
 @media only screen and (min-device-width: 1024px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
-  .goToHome {
-    /*margin-left: -233%%;*/
-
-  }
-  .goToKitchen {
-    /*margin: 0vh 0vh 0vh 203%;*/
-  }
-
   .goToKitchenLogo {
     width: 11%;
   }
