@@ -27,8 +27,8 @@ class Order extends Component {
   };
 
   trFooterStyle = {
-    fontSize: '20px',
-  }
+    fontSize: "20px",
+  };
 
   render() {
     const { products } = this.state;
@@ -79,6 +79,7 @@ class Order extends Component {
                     <td>
                       <img
                         src={icon}
+                        alt="icon-delete"
                         onClick={() => {
                           this.props.delete(product);
                         }}
