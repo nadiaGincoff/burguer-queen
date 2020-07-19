@@ -8,6 +8,7 @@ import Menu from "../Menu";
 import "../components/Waiter/ClientInfo.css";
 import db from "../firebase.js";
 import { Link } from "react-router-dom";
+import Modal1 from "../components/Waiter/Modal.js";
 
 const menu = Menu.menu;
 class Waiter extends Component {
@@ -184,6 +185,10 @@ class Waiter extends Component {
                 );
               })}
           </div>
+          <div>
+            <Modal1></Modal1>
+          </div>
+
           <div>
             <h1 className="menuTitle"> Para beber </h1>{" "}
             <hr className="hr" size="3px" />
