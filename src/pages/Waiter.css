@@ -17,7 +17,6 @@ body {
   margin-bottom: 2%;
 }
 
-
 .goToKitchen {
   font-family: Livvic;
   letter-spacing: 0.05em;
@@ -51,10 +50,9 @@ body {
 }
 
 .newOrderInfo {
-  width: 36%;
+  width: 50%;
   height: auto;
   background-color: #eeeeee;
-  margin-left: 10%;
   margin-right: 22px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
@@ -95,12 +93,10 @@ body {
 }
 
 .summary {
-  position: absolute;
-  width: 32%;
+  width: 72%;
   height: 21vh;
-  margin: 34% 5% 7px;
+  margin: 87% 0% 0% 19%;
 }
-
 
 .buttonEnviar,
 .buttonCancelar {
@@ -149,7 +145,7 @@ body {
     width: 51%;
     margin-top: 10vh;
   }
-  .containerOrder{
+  .containerOrder {
     width: 43%;
     margin-top: 10vh;
   }
@@ -181,7 +177,6 @@ body {
     height: 6vh;
     margin-bottom: 0.5%;
     background: linear-gradient(to right, #78bb55 0%, #5a5a5a 100%);
-
   }
   .goToKitchen {
     margin-top: 0vh;
@@ -222,7 +217,6 @@ body {
     flex-direction: space-around;
     margin-left: 1vh;
     margin-right: 1vh;
-
   }
 
   .buttonEnviar,
@@ -239,7 +233,7 @@ body {
     position: relative;
     /* width: 80%; */
     height: 61px;
-    margin:  2% 5% 5% 5%;
+    margin: 2% 5% 5% 5%;
   }
 
   .order {
