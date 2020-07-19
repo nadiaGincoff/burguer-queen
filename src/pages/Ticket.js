@@ -58,7 +58,6 @@ class Ticket extends Component {
             </p>
             <hr></hr>
             {item.data.map((product) => {
-              //console.log(dato, "dato");
               return (
                 <div className="ticketProducts">
                   <p className="productNameTicket">{product.name}</p>

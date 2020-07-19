@@ -12,23 +12,27 @@ body {
   display: flex;
   flex-wrap: wrap;
 }
+
 .ticketName {
   font-size: 17px;
   text-align: left;
   margin: 2%;
   font-family: cursive;
 }
+
 .ticketTable {
   margin: 2%;
   width: 50%;
   font-family: cursive;
 }
+
 .ticketDateSalida,
 .ticketDateEntrada {
   margin: 0% 0% 0% 2%;
   width: 74%;
   font-family: cursive;
 }
+
 .ticketTotal {
   font-size: 21px;
   font-family: cursive;
@@ -52,12 +56,14 @@ body {
   flex-wrap: wrap;
   border-radius: 2%;
 }
+
 .ticketProducts {
   display: flex;
   flex-direction: row;
   font-family: cursive;
   margin: -3% 0% 0% 0%;
 }
+
 .productNameTicket {
   margin: 2%;
   width: 80%;
@@ -85,8 +91,30 @@ h1 {
     font-size: 25px;
     margin-left: 35px;
   }
+
   header {
     height: 16px;
     margin-bottom: 0.5%;
   }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 768px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+  .cardContainer {
+    width: 29%;
+    margin: 10% 0% 2% 3%;
+  }
+
+  .kitchenProducts {
+    display: flex;
+    flex-direction: row;
+    font-family: cursive;
+    margin: 0% 4% 0% 4%;
+  }
+
+  .kitchenTotal {
+    font-size: 18px;
+    margin-left: 4%;
+    margin-right: 4%;
+  }
+
 }
