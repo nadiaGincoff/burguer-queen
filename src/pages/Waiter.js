@@ -184,6 +184,7 @@ class Waiter extends Component {
                 );
               })}
           </div>
+
           <div>
             <h1 className="menuTitle"> Para beber </h1>{" "}
             <hr className="hr" size="3px" />

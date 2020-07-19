@@ -9,12 +9,12 @@
 }
 
 .containerCard {
-  height: 15vh;
-  width: 15vh;
+  height: 18vh;
+  width: 18vh;
   border: none;
   border-radius: 12%;
   cursor: pointer;
-  margin: 0px 0px 0px 3%;
+  margin: 0% 1% 0% 3%;
   background: #ffffff;
 }
 
@@ -45,7 +45,6 @@
   justify-content: center;
   align-items: center;
   margin-top: 5%;
-
 }
 
 .card-price {
@@ -58,7 +57,9 @@
   align-items: flex-end;
   letter-spacing: 0.05em;
 }
-
+.card-name {
+  font-size: 18px;
+}
 @media only screen and (min-device-width: 1024px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
   .hr {
     margin-bottom: 20px;

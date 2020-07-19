@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./Ticket.css";
 import db from "../firebase";
-import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
 
 class Ticket extends Component {
@@ -31,7 +30,7 @@ class Ticket extends Component {
     const { order } = this.state;
 
     return (
-      <div className="kitchenContainer">
+      <div className="ticketContainer">
         <header className="header">
           <Link to="/">
             <div>
@@ -51,28 +50,24 @@ class Ticket extends Component {
         </header>
         {order.map((item, key) => (
           <div className="cardContainer" key={key}>
-            <p className="kitchenName">Cliente : {item.name}</p>
+            <p className="ticketName">Cliente : {item.name}</p>
             <hr></hr>
-            <p className="kitchenDateEntrada">Hora entrada : {item.date}</p>
-            <p className="kitchenDateSalida">
+            <p className="ticketDateEntrada">Hora entrada : {item.date}</p>
+            <p className="ticketDateSalida">
               Hora salida : {item.readyOrderDate}
             </p>
             <hr></hr>
             {item.data.map((product) => {
               //console.log(dato, "dato");
               return (
-                <div className="kitchenProducts">
-                  <p className="productName">{product.name}</p>
-                  <p className="productQuantify">{product.price}</p>
+                <div className="ticketProducts">
+                  <p className="productNameTicket">{product.name}</p>
+                  <p className="productQuantifyTicket">{product.price}</p>
                 </div>
               );
             })}
             <hr></hr>
-            <p className="kitchenTotal">Total a Pagar : {item.total}</p>
-
-            <div className="imprimirBoleta">
-              <Button color="success">Imprimir Boleta</Button>
-            </div>
+            <p className="ticketTotal">Total a Pagar : {item.total}</p>
           </div>
         ))}
       </div>
