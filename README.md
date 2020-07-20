@@ -1,9 +1,5 @@
 # Burger Queen
 
-![burger-queen](/img/logobqueen.jpg)
-
----
-
 ## Preámbulo
 
 Como desarrolladora Front-end, estos kits de desarrollo pueden resultarte
